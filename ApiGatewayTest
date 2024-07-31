@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>웹 챗봇</title>
+    <title>API Gateway TEST</title>
 </head>
 <body>
     <input type="text" id="message" placeholder="메시지 입력">
