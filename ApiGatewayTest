@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>웹 챗봇</title>
+</head>
+<body>
+    <input type="text" id="message" placeholder="메시지 입력">
+    <button onclick="sendMessage()">전송</button>
+
+    <div id="response"></div>
+    <script>
+        const apiUrl = 'https://1qpvyr49g5.apigw.ntruss.com/custom/v1/15086/ee048475e5339ab539f9bc93c785ae96a30d87ffb0863b153bd9fef764b81c2d';
+
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            axios.post(apiUrl, { message })
+                .then(response => {
+                    const data = response.data;
+                    document.getElementById('response').innerText = data.message;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    </script>
+</body>
+</html>
