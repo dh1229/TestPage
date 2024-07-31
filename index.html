@@ -10,24 +10,22 @@
     <div id="response"></div>
 
     <script>
-        const apiUrl = 'https://47t428y9ud.apigw.ntruss.com/SyworksTestChatbot/SyworksTestChatbot/'; // 챗봇 url
+        const axios = require('axios');
+        
+        const apiUrl = 'https://1qpvyr49g5.apigw.ntruss.com/SyworksTestChatbot/SyworksTestChatbot/';
+        
+        axios.post(apiUrl, {
+          message: '핵심역량'
+        })
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
 
-        function sendMessage() {
-            const message = document.getElementById('message').value;
-            const xhr = new XMLHttpRequest();
 
-            xhr.open('POST', apiUrl, true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    const response = JSON.parse(xhr.responseText);
-                    document.getElementById('response').innerText = response.message;
-                } else {
-                    console.error('API 호출 실패');
-                }
-            };
-            xhr.send(JSON.stringify({ message }));
-        }
+        
     </script>
 </body>
 </html>
